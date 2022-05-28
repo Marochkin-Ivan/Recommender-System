@@ -1,0 +1,56 @@
+basePath: /
+definitions:
+  algoStorage.RecommendRequest:
+    properties:
+      city:
+        type: string
+      in_time:
+        type: string
+      name:
+        type: string
+    type: object
+  algoStorage.RecommendResponse:
+    properties:
+      arts_list:
+        additionalProperties:
+          type: string
+        type: object
+    type: object
+info:
+  contact:
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is an image processing server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Recommender-Algo
+  version: 0.0.1
+paths:
+  /:
+    post:
+      consumes:
+      - application/json
+      description: handler for recommendation
+      parameters:
+      - description: Request structure
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/algoStorage.RecommendRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/algoStorage.RecommendResponse'
+        "404":
+          description: ""
+        "507":
+          description: ""
+      tags:
+      - Auth
+swagger: "2.0"
