@@ -1,0 +1,200 @@
+basePath: /
+definitions:
+  algoStorage.RecommendRequest:
+    properties:
+      city:
+        type: string
+      in_time:
+        type: string
+      name:
+        type: string
+    type: object
+  algoStorage.RecommendResponse:
+    properties:
+      arts_list:
+        additionalProperties:
+          type: string
+        type: object
+    type: object
+  storage.AuthResponse:
+    properties:
+      token:
+        type: string
+    type: object
+  storage.Ticket:
+    properties:
+      arrivalTime:
+        type: string
+      date:
+        type: string
+      departureTime:
+        type: string
+      from:
+        type: string
+      to:
+        type: string
+      transfer:
+        type: string
+      transferDepartureTime:
+        type: string
+      transferTime:
+        type: string
+    type: object
+  storage.TicketsRequest:
+    properties:
+      date:
+        type: string
+      from:
+        type: string
+      to:
+        type: string
+    type: object
+  storage.TicketsResponse:
+    properties:
+      tickets:
+        items:
+          $ref: '#/definitions/storage.Ticket'
+        type: array
+    type: object
+  storage.UserInfo:
+    properties:
+      login:
+        type: string
+      password:
+        type: string
+    type: object
+info:
+  contact:
+    name: API Support
+    url: http://www.swagger.io/support
+  description: This is an image processing server.
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger Recommender-System
+  version: 0.0.1
+paths:
+  /api/leisure/list:
+    post:
+      consumes:
+      - application/json
+      description: handler for recommendation
+      parameters:
+      - default: <Add access token here>
+        description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Request structure
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/algoStorage.RecommendRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/algoStorage.RecommendResponse'
+        "403":
+          description: ""
+        "404":
+          description: ""
+        "500":
+          description: ""
+        "507":
+          description: ""
+      tags:
+      - Auth
+  /api/tickets/:
+    post:
+      consumes:
+      - application/json
+      description: handler for tickets
+      parameters:
+      - default: <Add access token here>
+        description: Insert your access token
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Request structure
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/storage.TicketsRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/storage.TicketsResponse'
+        "403":
+          description: ""
+        "404":
+          description: ""
+        "507":
+          description: ""
+      tags:
+      - Auth
+  /api/user/auth:
+    post:
+      consumes:
+      - application/json
+      description: authorization handler
+      parameters:
+      - description: Request structure
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/storage.UserInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/storage.AuthResponse'
+        "401":
+          description: ""
+        "404":
+          description: ""
+        "507":
+          description: ""
+      tags:
+      - All
+  /api/user/registration:
+    post:
+      consumes:
+      - application/json
+      description: registration handler
+      parameters:
+      - description: Request structure
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/storage.UserInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/storage.AuthResponse'
+        "404":
+          description: ""
+        "409":
+          description: ""
+        "507":
+          description: ""
+      tags:
+      - All
+swagger: "2.0"

@@ -1,0 +1,3 @@
+host: "localhost:8080"
+alg_host: "localhost:9090"
+store: "./storage/store.db"
