@@ -1,6 +1,6 @@
 # Recommender-System
 Архитектура проекта:
-
+![image](https://user-images.githubusercontent.com/57828271/170818365-e008917d-6083-470d-9df8-eceabc877310.png)
 
 Основной сервер в директории **/Recommender-Service**
 
