@@ -4,10 +4,10 @@ go 1.17
 
 require (
 	github.com/gofiber/fiber/v2 v2.34.0
-	github.com/google/uuid v1.3.0
 	github.com/mattn/go-sqlite3 v1.14.13
 	github.com/muesli/regommend v0.0.0-20190807045506-ee89be7688a4
 	github.com/swaggo/fiber-swagger v1.2.1
+	github.com/swaggo/swag v1.8.2
 	gopkg.in/yaml.v2 v2.4.0
 )
 
@@ -24,12 +24,11 @@ require (
 	github.com/klauspost/compress v1.15.0 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/swaggo/files v0.0.0-20210815190702-a29dd2bc99b2 // indirect
-	github.com/swaggo/swag v1.8.1 // indirect
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.37.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/net v0.0.0-20220225172249-27dd8689420f // indirect
+	golang.org/x/net v0.0.0-20220425223048-2871e0cb64e4 // indirect
 	golang.org/x/sys v0.0.0-20220227234510-4e6760a101f9 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	golang.org/x/tools v0.1.7 // indirect
+	golang.org/x/tools v0.1.10 // indirect
 )
