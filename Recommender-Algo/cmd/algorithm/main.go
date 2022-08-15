@@ -12,5 +12,7 @@ import "recommenderalgo/internal/algo"
 //@license.url     http://www.apache.org/licenses/LICENSE-2.0.html
 //@BasePath        /
 func main() {
+
 	algo.StartService()
+
 }
